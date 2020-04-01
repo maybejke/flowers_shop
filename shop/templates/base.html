@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    {% block title %}
+    	<title>Flowers INC.</title>
+    {% endblock title %}
+    {% block css %}
+		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+	    
+	    <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+	    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    {% endblock css %}
+	<!-- Bootstrap core CSS -->
+  </head>
+  <body>
+  	{% block navbar %}
+  		<!-- Static navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=" {% url 'index_list' %}">Цветы</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{% url 'index_list' %}">Главная</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  	{% endblock navbar %}
+    
+
+
+	<div id="headerwrap">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h1>Цветы</h1>
+					<h4>дарите с удовольствием</h4>
+				</div>
+			</div><! --/row -->
+	    </div> <!-- /container -->
+	</div><! --/headerwrap -->
+
+	{% block content %}
+		
+	{% endblock content %}
+
+	{% block chose_us %}
+		<div id="why">
+			<div id="w">
+			<div id="about">
+			    <div class="container" style="">
+					<div class="row">
+				<div class="row centered mt mb">
+					<h1>Выбирайте нас!</h1>
+					
+					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
+						<img src="{% static "/img/icons/Nature_&_outdoors_05.svg" %}" class="img-responsive"><h4>Бесплатная доставка от 5000р</h4>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
+						<img src="{% static "/img/icons/Nature_&_outdoors_02.svg" %}" class="img-responsive">
+						<h4>Только свежие цветы</h4>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
+						<img src="{% static "/img/icons/Nature_&_outdoors_03.svg" %}" class="img-responsive"><h4>Лучшие букеты сделанные для вас</h4>
+					</div>
+				</div>
+					</div><! --/row -->
+			    </div> <!-- /container -->
+			    </div>
+			</div><! --/why -->
+		</div>
+	{% endblock chose_us %}
+	
+	{% block blockname %}
+		<div id="social">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-2">
+					<a href="#"><i class="fa fa-dribbble"></i></a>
+				</div>
+				<div class="col-lg-2">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+				</div>
+				<div class="col-lg-2">
+					<a href="#"><i class="fa fa-twitter"></i></a>
+				</div>
+				<div class="col-lg-2">
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+				</div>
+				<div class="col-lg-2">
+					<a href="#"><i class="fa fa-instagram"></i></a>
+				</div>
+				<div class="col-lg-2">
+					<a href="#"><i class="fa fa-tumblr"></i></a>
+				</div>
+			
+			</div><! --/row -->
+		</div><! --/container -->
+	</div><! --/social -->
+	{% endblock blockname %}
+	
+	{% block contacts %}
+		<div class="container" id="contacts">
+			<div class="row centered mt mb">
+				<h1>Контакты</h1></br>
+				<div class="col-lg-4 col-md-4 col-sm-4">300700, Kutuzova st. 87. 12</div>
+				<div class="col-lg-4 col-md-4 col-sm-4">г. Москва</div>
+				<div class="col-lg-4 col-md-4 col-sm-4">тел: 8 800 7000 0090</div>
+			</div>
+		</div>
+	{% endblock contacts %}
+
+	{% block footer %}
+	
+		<div id="footerwrap">
+			<div class="container">
+				<div class="row centered">
+					<div class="col-lg-4">
+						<p><b></b></p>
+					</div>
+				
+					<div class="col-lg-4">
+						<p>Цветы для вас.</p>
+					</div>
+					<div class="col-lg-4">
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div><! --/footerwrap -->
+	{% endblock footer %}
+	
+
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js"%}"></script>
+
+
+  </body>
+</html>
