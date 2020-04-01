@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	
+{% endblock title %}
+
+{% block content %}
+    <section id="works"></section>
+	<div class="container">
+		<div class="row centered mt mb">
+			<h1>{{ category.title }}</h1>
+			{% for product in category.products.all %}
+				{% include 'mainapp/snippets/products_snippet.html' %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock content %}
+	
+	

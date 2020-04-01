@@ -6,35 +6,20 @@
 {% endblock title %}
 
 {% block content %}
+
 	<ul class="nav nav-pills nav-justified">
-	  <li class="nav-item">
-	    <a class="nav-link text-props" href="products.html">8 марта</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link text-props" href="#">24 часа</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link text-props" href="#">Классика</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link text-props" href="#">Авторские</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link text-props" href="#">Цветы в коробке</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link text-props" href="#" tabindex="-1" aria-disabled="true">Корзины</a>
-	  </li>
+        {% for category in categories %}
+          <li class="nav-item">
+            <a class="nav-link text-props" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+          </li>
+        {% endfor %}
 	</ul>
 	<section id="works"></section>
 	<div class="container">
 		<div class="row centered mt mb">
 			<h1>Букеты</h1>
 			{% for product in products_all %}
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="#"><img src="{{ product.pictures.all.0.image.url }}" class="img-responsive">
-					<div class="price">{{product.title}}</div><div class="button">Купить</div></a>
-				</div>
+                {% include "mainapp/snippets/products_snippet.html" %}
 			{% endfor %}
 		</div>
 	</div>

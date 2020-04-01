@@ -1,7 +1,9 @@
 from django.db import models
+from django.urls import reverse
 
 from django.utils.text import slugify
 from time import time
+
 
 # Create your models here.
 
@@ -33,16 +35,20 @@ class Product(models.Model):
             self.slug = gen_slug(self.title)
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('product_detail', kwargs={'slug': self.slug})
+
 
 class Category(models.Model):
     class Meta:
         ordering = ('title',)
         verbose_name = 'Категория'
         verbose_name_plural = "Категории"
+
     title = models.CharField('Название', max_length=120)
     slug = models.SlugField(max_length=150, blank=True, unique=True)
     description = models.TextField(blank=True, null=True)
-    
+
     def __str__(self):
         return f'{self.title}'
 
@@ -51,17 +57,21 @@ class Category(models.Model):
             self.slug = gen_slug(self.title)
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('category_detail', kwargs={'slug': self.slug})
+
 
 class Picture(models.Model):
     class Meta:
         ordering = ('title',)
-        verbose_name = 'Картианка'
+        verbose_name = 'Картинка'
         verbose_name_plural = "Картинки"
+
     title = models.CharField('Название', max_length=200, db_index=True)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='pictures')
     related_obj = models.ForeignKey(Product, verbose_name='pictures', null=True,
                                     blank=True, on_delete=models.CASCADE, related_name='pictures')
-    
+
     def __str__(self):
         return f'{self.title}'

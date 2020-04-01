@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+    <section id="works"></section>
+	<div class="container">
+		<div class="row centered mt mb">
+			<h1>{{ product.title }}</h1>
+			<a href="#"><img src="{{ product.pictures.all.0.image.url }}" class="img-responsive">
+		</div>
+	</div>
+{% endblock content %}
+

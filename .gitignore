@@ -1,0 +1,19 @@
+# distribution / packaging
+
+.DS_Store
+/theme
+theme.7z
+
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+win_env/
+
+# ide
+idea/
