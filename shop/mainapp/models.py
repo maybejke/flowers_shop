@@ -26,6 +26,7 @@ class Product(models.Model):
     pub_date = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(
         'Category', verbose_name='products', blank=True, related_name='products')
+    price = models.PositiveIntegerField(verbose_name='Цена за шт', default=0)
 
     def __str__(self):
         return f'{self.title}'

@@ -8,10 +8,21 @@
 {% block content %}
     <section id="works"></section>
 	<div class="container">
-		<div class="row centered mt mb">
-			<h1>{{ product.title }}</h1>
-			<a href="#"><img src="{{ product.pictures.all.0.image.url }}" class="img-responsive">
-		</div>
-	</div>
+        <div class="row centered mt mb">
+
+            <div class="col-md-4 " style="margin-left: auto; max-width: 400px">
+              <img src="{{ product.pictures.all.0.image.url }}" class="img-responsive" alt="{{ product.title }}">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">{{ product.title }}</h3>
+                <p class="card-text"><small class="text-muted">{{ product.categories.all.0.title }}</small></p>
+                <p class="card-text">{{ product.description }}</p>
+                <div class="price">70р/шт</div>
+                <button type="button" class="btn btn-primary">Купить</button>
+              </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
 

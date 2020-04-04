@@ -13,7 +13,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products_all'] = Product.objects.all()
-        context['categories'] = Category.objects.all()
+        context['links_menu'] = Category.objects.all()
         return context
 
 

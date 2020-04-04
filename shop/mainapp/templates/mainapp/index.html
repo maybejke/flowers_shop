@@ -8,10 +8,8 @@
 {% block content %}
 
 	<ul class="nav nav-pills nav-justified">
-        {% for category in categories %}
-          <li class="nav-item">
-            <a class="nav-link text-props" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
-          </li>
+        {% for link in links_menu %}
+            {% include "mainapp/snippets/categories_menu_snippet.html" %}
         {% endfor %}
 	</ul>
 	<section id="works"></section>

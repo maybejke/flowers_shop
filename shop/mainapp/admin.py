@@ -8,4 +8,4 @@ admin.site.register(Picture)
 
 @admin.register(Product)
 class Product(admin.ModelAdmin):
-	fields = ('title', 'description', 'categories')
+	fields = ('title', 'description', 'categories', 'price')
