@@ -18,8 +18,12 @@
                 <h3 class="card-title">{{ product.title }}</h3>
                 <p class="card-text"><small class="text-muted">{{ product.categories.all.0.title }}</small></p>
                 <p class="card-text">{{ product.description }}</p>
-                <div class="price">70р/шт</div>
-                <button type="button" class="btn btn-primary">Купить</button>
+                <div class="price">{{ product.price }} руб.</div>
+                <form action="{% url "basket:cart_add" product.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-primary" value="Добавить в корзину">
+                </form>
               </div>
             </div>
         </div>
