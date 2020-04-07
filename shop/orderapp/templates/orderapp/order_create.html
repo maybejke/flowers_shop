@@ -2,13 +2,16 @@
 {% load static %}
 
 {% block title %}
-   <title>Ваша корзина|Цветы</title>
-{% endblock title %}
+    Ваш заказ | Цветы
+{% endblock %}
+
+{% block header %}
+    <div style="margin-top: 40px; background: #4a4a4a"> <br/></div>
+{% endblock %}
 
 {% block content %}
-    <section id="works"></section>
-	<div class="container">
-        <h1> Ваша корзина: </h1>
+    <div class="container">
+    <h1> Ваш заказ: </h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -16,9 +19,7 @@
               <th scope="col">Изображение</th>
               <th scope="col">Навание</th>
               <th scope="col">Количество</th>
-              <th scope="col">Цена шт.</th>
               <th scope="col">Цена</th>
-              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -40,23 +41,26 @@
                   </td>
                   <td>{{ product.title }}</td>
                   <td>{{ item.quantity }}</td>
-                  <td>{{ item.price }}р</td>
                   <td>{{ item.total_price }}р</td>
-                  <td><a href="{% url "basket:cart_remove" product.id %}">Удалить</a></td>
                 </tr>
               {% endwith %}
           {% endfor %}
           <tr class="total">
-            <td>Итого:</td>
-            <td colspan="4"></td>
-            <td class="num">{{ cart.get_total_price }}р</td>
+              <td colspan="3"></td>
+              <td>Итого:</td>
+              <td class="num">{{ cart.get_total_price }}р</td>
           </tr>
           </tbody>
         </table>
-        <p class="">
-            <a href="{% url "index_list" %}" class="btn btn-primary">Вернуться к на главную</a>
-            <a href="{% url "order:order_create" %}" class="btn btn-danger">Оформить</a>
-        </p>
+        <form action="." method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <p><input type="submit" value="Отправить заказ" class="btn btn-primary"></p>
+        </form>
     </div>
-{% endblock content %}
-
+{% endblock %}

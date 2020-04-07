@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Ваш заказ | Цветы
+{% endblock %}
+
+{% block content %}
+    <div class="row centered mt mb">
+    <h1>Спасибо Вам!</h1>
+    <p>Ваш заказ был успешно создан, номер вашего заказа: №
+        <strong>{{ order.id }}</strong>.</p>
+    </div>
+{% endblock %}

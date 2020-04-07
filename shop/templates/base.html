@@ -9,9 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <title>
     {% block title %}
-    	<title>Flowers INC.</title>
+    	Flowers INC.
     {% endblock title %}
+    </title>
     {% block css %}
 		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
 
@@ -28,6 +30,7 @@
           {% include "snippets/menu_snippet.html" %}
   	{% endblock navbar %}
 
+    {% block header %}
 	<div id="headerwrap">
 	    <div class="container">
 			<div class="row">
@@ -38,6 +41,7 @@
 			</div><! --/row -->
 	    </div> <!-- /container -->
 	</div><! --/headerwrap -->
+    {% endblock header %}
 
 	{% block content %}
 		
