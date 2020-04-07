@@ -19,9 +19,10 @@ class Product(models.Model):
         ordering = ('title', 'pub_date')
         verbose_name = 'Продукт'
         verbose_name_plural = "Продукты"
+        index_together = (('id', 'slug'),)
 
     title = models.CharField('Название', max_length=200, db_index=True)
-    slug = models.SlugField(max_length=150, blank=True, unique=True)
+    slug = models.SlugField(max_length=150, blank=True, unique=True, db_index=True)
     description = models.TextField(blank=True, null=True)
     pub_date = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(

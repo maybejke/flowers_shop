@@ -1,0 +1,35 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=" {% url 'index_list' %}">Цветы</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="{% if request.resolver_match.url_name == 'index_list' %}active{% endif %}"><a href="{% url 'index_list' %}">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+                <li class="{% if request.resolver_match.namespace == 'basket' %}active{% endif %}"><a href={% url "basket:cart_detail" %}>
+                    <svg class="bi bi-bag" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 001 1h10a1 1 0 001-1V5zM1 4v10a2 2 0 002 2h10a2 2 0 002-2V4H1z" clip-rule="evenodd"/>
+                      <path d="M8 1.5A2.5 2.5 0 005.5 4h-1a3.5 3.5 0 117 0h-1A2.5 2.5 0 008 1.5z"/>
+                      </svg>
+                    {% with total_items=cart|length %}
+                        {% if cart|length > 0 %}
+                            Корзина:
+                            {{ total_items }} ед., {{ cart.get_total_price }} руб.
+                        {% else %}
+
+                        {% endif %}
+                    {% endwith %}
+                </a></li>
+            </ul>
+
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
