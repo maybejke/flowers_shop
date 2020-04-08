@@ -2,10 +2,15 @@
 {% load static %}
 
 {% block title %}
-
+    {{ product.title|title }} | Цветы
 {% endblock title %}
 
 {% block content %}
+    <ul class="nav nav-pills nav-justified">
+        {% for link in links_menu %}
+            {% include "mainapp/snippets/categories_menu_snippet.html" %}
+        {% endfor %}
+	</ul>
     <section id="works"></section>
 	<div class="container">
         <div class="row centered mt mb">

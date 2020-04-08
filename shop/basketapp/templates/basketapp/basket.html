@@ -2,12 +2,21 @@
 {% load static %}
 
 {% block title %}
-   <title>Ваша корзина|Цветы</title>
+Ваша корзина|Цветы
 {% endblock title %}
 
+{% block header %}
+    <div id="headerwrap" style="min-height: 30px">
+            <div class="container">
+                <div class="row">
+
+                </div><! --/row -->
+            </div> <!-- /container -->
+        </div><! --/headerwrap -->
+{% endblock %}
 {% block content %}
     <section id="works"></section>
-	<div class="container">
+	<div class="container mb mt">
         <h1> Ваша корзина: </h1>
         <table class="table">
           <thead class="thead-dark">
@@ -18,7 +27,7 @@
               <th scope="col">Количество</th>
               <th scope="col">Цена шт.</th>
               <th scope="col">Цена</th>
-              <th scope="col"></th>
+              <th scope="col">Удалить</th>
             </tr>
           </thead>
           <tbody>

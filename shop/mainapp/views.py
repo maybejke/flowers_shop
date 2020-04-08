@@ -27,6 +27,7 @@ class ProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['cart_product_form'] = self.cart_product_form
+        context['links_menu'] = Category.objects.all()
         return context
 
 
@@ -38,4 +39,5 @@ class CategoryDetailView(DetailView):
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
+        context['links_menu'] = Category.objects.all()
         return self.render_to_response(context)
