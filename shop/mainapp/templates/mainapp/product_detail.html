@@ -14,16 +14,15 @@
     <section id="works"></section>
 	<div class="container">
         <div class="row centered mt mb">
-
-            <div class="col-md-4 " style="margin-left: auto; max-width: 400px">
-              <img src="{{ product.pictures.all.0.image.url }}" class="img-responsive" alt="{{ product.title }}">
+            <div class="col-md-4">
+              {% include "mainapp/snippets/products_carousel.html" %}
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h3 class="card-title">{{ product.title }}</h3>
                 <p class="card-text"><small class="text-muted">{{ product.categories.all.0.title }}</small></p>
                 <p class="card-text">{{ product.description }}</p>
-                <div class="price">{{ product.price }} руб.</div>
+                <div class="price">Цена за шт: {{ product.price }} руб.</div>
                 <form action="{% url "basket:cart_add" product.id %}" method="post">
                     {{ cart_product_form }}
                     {% csrf_token %}

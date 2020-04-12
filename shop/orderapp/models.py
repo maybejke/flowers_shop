@@ -21,7 +21,8 @@ class Order(models.Model):
     email = models.EmailField()
     address = models.CharField(verbose_name='Адрес', max_length=300)
     city = models.CharField(verbose_name='Город', max_length=100)
-    postal_code = models.IntegerField(verbose_name='Почтовый индекс')
+    phone_number = models.DecimalField(verbose_name='Номер телефона',
+                                       max_digits=12, default=84957777777, decimal_places=0)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
