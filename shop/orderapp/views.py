@@ -29,8 +29,8 @@ def order_create(request):
                                           quantity=item['quantity'])
             # clear basket
             cart.clear()
-            # run async task// delay - adding task into queue, will run it as soon as possible
-            order_created.delay(order.id)
+            # run async task// order_created.delay(order.id) - adding task into queue, will run it as soon as possible
+            order_created(order.id)
 
             return render(request, 'orderapp/order_created.html', {'order': order})
 
