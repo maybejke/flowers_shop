@@ -79,12 +79,25 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'NAME': 'django_project_db',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'USER': 'django',
+            'PASSWORD': 'Loh4ohquahno',
+            'HOST': 'localhost'
+        }
+    }
+
+
 
 
 # Password validation
@@ -138,3 +151,6 @@ CART_SESSION_ID = 'basket'
 # send mail into console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_FILE_PATH = '/tmp/app-messages' # change this to a proper location
+
+# db
+
