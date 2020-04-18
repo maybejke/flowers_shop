@@ -1,4 +1,5 @@
-<div class="container">
+{% load static %}
+<div class="container" id="reviews">
           <div class="row">
             <div class='text-center'>
             <h2>Отзывы</h2>
@@ -11,6 +12,7 @@
                   <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
                   <li data-target="#quote-carousel" data-slide-to="1"></li>
                   <li data-target="#quote-carousel" data-slide-to="2"></li>
+                  <li data-target="#quote-carousel" data-slide-to="3"></li>
                 </ol>
 
                 <!-- Carousel Slides / Quotes -->
@@ -20,14 +22,13 @@
                   <div class="item active">
                     <blockquote>
                       <div class="row">
-                        <div class="col-sm-3 text-center">
-                          <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
+                        <div class="col-sm-12 text-center">
+                          <img class="img-thumbnail" src="{% static 'img/reviews/rev_1.jpeg' %}" style="width: 300px; height: 450px;">
+                          <img class="img-thumbnail" src="{% static 'img/reviews/rev_2.jpeg' %}" style="width: 300px; height: 450px;">
+                          <img class="img-thumbnail" src="{% static 'img/reviews/rev_3.jpeg' %}" style="width: 300px; height: 450px;">
                           <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
                         </div>
-                        <div class="col-sm-9">
-                          <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
-                          <small>Someone famous</small>
-                        </div>
+
                       </div>
                     </blockquote>
                   </div>
@@ -35,12 +36,10 @@
                   <div class="item">
                     <blockquote>
                       <div class="row">
-                        <div class="col-sm-3 text-center">
-                          <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
-                        </div>
-                        <div class="col-sm-9">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
-                          <small>Someone famous</small>
+                        <div class="col-sm-12 text-center">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_4.jpeg' %}" style="width: 280px; height: 450px;">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_5.jpeg' %}" style="width: 280px; height: 450px;">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_6.jpeg' %}" style="width: 280px; height: 450px;">
                         </div>
                       </div>
                     </blockquote>
@@ -49,13 +48,27 @@
                   <div class="item">
                     <blockquote>
                       <div class="row">
-                        <div class="col-sm-3 text-center">
-                          <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
+                        <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_7.jpeg' %}" style="width: 300px; height: 450px;">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_8.jpeg' %}" style="width: 300px; height: 450px;">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_9.jpeg' %}" style="width: 300px; height: 450px;">
                         </div>
-                        <div class="col-sm-9">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
-                          <small>Someone famous</small>
+                      </div>
+                      </div>
+                    </blockquote>
+                  </div>
+                    <!-- Quote 4 -->
+                  <div class="item">
+                    <blockquote>
+                      <div class="row">
+                        <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_10.jpeg' %}" style="width: 300px; height: 450px;">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_11.jpeg' %}" style="width: 300px; height: 450px;">
+                            <img class="img-thumbnail" src="{% static 'img/reviews/rev_12.jpeg' %}" style="width: 300px; height: 450px;">
                         </div>
+                      </div>
                       </div>
                     </blockquote>
                   </div>

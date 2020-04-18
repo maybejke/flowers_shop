@@ -152,5 +152,3 @@ CART_SESSION_ID = 'basket'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_FILE_PATH = '/tmp/app-messages' # change this to a proper location
 
-# db
-

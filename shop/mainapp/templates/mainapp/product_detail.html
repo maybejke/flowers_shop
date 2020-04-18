@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    {{ product.title|title }} | Цветы
+    {{ product.title|title }} | bouquet of flowers
 {% endblock title %}
 
 {% block content %}
@@ -21,12 +21,16 @@
               <div class="card-body">
                 <h3 class="card-title">{{ product.title }}</h3>
                 <p class="card-text"><small class="text-muted">{{ product.categories.all.0.title }}</small></p>
-                <p class="card-text">{{ product.description }}</p>
-                <div class="price">Цена за шт: {{ product.price }} руб.</div>
+                <p class="card-text text-left">{{ product.description }}</p>
+                  <br>
+                <div class="price ">Цена за букет: {{ product.price }} руб.</div>
                 <form action="{% url "basket:cart_add" product.id %}" method="post">
-                    {{ cart_product_form }}
-                    {% csrf_token %}
-                    <input type="submit" class="btn btn-primary" value="Добавить в корзину">
+                    <div class="form-row">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                    </div>
+
+                        <input type="submit" class="btn btn-primary" value="Добавить в корзину">
                 </form>
               </div>
             </div>

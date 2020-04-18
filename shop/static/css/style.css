@@ -81,8 +81,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
+
 .navbar-default .navbar-brand {
-	color: #fff;
+	color: #03664f;
+	font-weight: bold;
 }
 
 .navbar-default {
@@ -91,13 +93,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: #fff;
+	color: #333333;
+	font-weight: bold;
 	background-color: transparent;
-	border-top: 5px solid #fff;
+	opacity: 1;
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: #fff;
+	color: #000000;
+	font-weight: bold;
+	background: #e7a8a8; /* Цвет фона */
+    opacity: 0.7; /* Полупрозрачный фон */
+	border: 2px #FF5A00;
+  	border-radius: 13px 70px 13px 70px;
+
 }
 
 /* ==========================================================================
@@ -105,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/sunset-3087145.jpg) no-repeat center top fixed;
+	background: url(../img/main_page.jpeg) no-repeat center top fixed;
 	margin-top: 0px;
 	padding-top: 250px;
 	text-align:Left;
@@ -125,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
 }
 #why {
-	background: #444 url(../img/bucket2.jpg) no-repeat center top fixed;
+	background: #444 url(../img/main_page.jpeg) no-repeat center top fixed;
 	margin-top: 0px;
 	padding-top: 0px;
 	text-align:Left;
@@ -215,11 +224,15 @@ a:hover .button{
 	letter-spacing: 4px;
 	font-size: 80px;
 	font-weight: bold;
+   -webkit-text-stroke: 0.3px #e7a8a8;
+   -webkit-text-fill-color: white;
 }
 
 #headerwrap h4 {
 	font-weight: 400;
-	color: #ffffff
+	color: #ffffff;
+   -webkit-text-stroke: 1px #e7a8a8;
+   -webkit-text-fill-color: white;
 }
 
 #social {
@@ -315,6 +328,7 @@ margin-left: auto;
 .gallery img{
 	margin-top: 30px;
 	z-index:2;
+
 
 }
 .gallery img:hover {
@@ -425,4 +439,10 @@ margin-left: auto;
         width: 20px;
         height: 20px;
     }
+}
+
+
+.menu-color {
+   -webkit-text-stroke: 0.5px #e7a8a8;
+   -webkit-text-fill-color: white;
 }

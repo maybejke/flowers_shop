@@ -11,21 +11,26 @@ class Order(models.Model):
     :paid оплачен или нет
     get_total_coast перебираем все товары в заказе и считаем общую стоимость заказа
     """
+
     class Meta:
         ordering = ('-created',)
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
 
     first_name = models.CharField(verbose_name='Имя', max_length=50)
-    last_name = models.CharField(verbose_name='Фамилия', max_length=100)
+    gift_name = models.CharField(verbose_name='Имя получателя подарка', max_length=100, null=True)
     email = models.EmailField()
     address = models.CharField(verbose_name='Адрес', max_length=300)
-    city = models.CharField(verbose_name='Город', max_length=100)
+    # city = models.CharField(verbose_name='Город', max_length=100)
     phone_number = models.DecimalField(verbose_name='Номер телефона',
-                                       max_digits=12, default=84957777777, decimal_places=0)
+                                       max_digits=12, decimal_places=0)
+    gift_phone_number = models.DecimalField(verbose_name='Номер телефона получателя подарка',
+                                       max_digits=12, decimal_places=0, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    comment = models.TextField(verbose_name='Комментарий к заказу',
+                               blank=True, null=True, help_text='Дополнительная информация')
 
     def __str__(self):
         return f'Заказ: {self.id}'

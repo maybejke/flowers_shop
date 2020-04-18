@@ -2,9 +2,17 @@
 {% load static %}
 
 {% block title %}
-	{{ category.title|title }} | Цветы
+	{{ category.title|title }} | bouquet of flowers
 {% endblock title %}
+{% block header %}
+    <div id="headerwrap" style="min-height: 350px">
+            <div class="container">
+                <div class="row">
 
+                </div><! --/row -->
+            </div> <!-- /container -->
+        </div><! --/headerwrap -->
+{% endblock %}
 {% block content %}
     <ul class="nav nav-pills nav-justified">
         {% for link in links_menu %}
@@ -13,7 +21,7 @@
 	</ul>
     <section id="works"></section>
 	<div class="container">
-		<div class="row centered mt mb">
+		<div class="row centered mb">
 			<h1>{{ category.title }}</h1>
 			{% for product in category.products.all %}
 				{% include 'mainapp/snippets/products_snippet.html' %}

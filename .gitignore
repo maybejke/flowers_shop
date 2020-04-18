@@ -3,7 +3,7 @@
 .DS_Store
 /theme
 theme.7z
-
+__pycache__/
 
 # Environments
 .env

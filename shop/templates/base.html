@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
     <title>
     {% block title %}
-    	Flowers INC.
+    	bouquet of flowers
     {% endblock title %}
     </title>
     {% block css %}
@@ -20,8 +20,7 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<!-- Custom styles for this template -->
-	    
-	    <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <link href="{% static "css/style.css" %}" rel="stylesheet">
     {% endblock css %}
 	<!-- Bootstrap core CSS -->
@@ -37,7 +36,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <h1>Цветы</h1>
+                        <h1>Bouquet of flowers</h1>
                         <h4>дарите с удовольствием</h4>
                     </div>
                 </div><! --/row -->
@@ -56,11 +55,11 @@
 			    <div class="container" style="">
 					<div class="row">
 				<div class="row centered mt mb">
-					<h1>Выбирайте нас!</h1>
+					<h1>Почему Вам стоит выбрать именно нас?</h1>
 					
 					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
 						<img src="{% static "/img/icons/Nature_&_outdoors_05.svg" %}" class="img-responsive">
-                        <h4>Бесплатная доставка от 5000р</h4>
+                        <h4>Бесплатная доставка в пределах МКАД 24 часа в сутки</h4>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
 						<img src="{% static "/img/icons/Nature_&_outdoors_02.svg" %}" class="img-responsive">
@@ -68,7 +67,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
 						<img src="{% static "/img/icons/Nature_&_outdoors_03.svg" %}"
-                             class="img-responsive"><h4>Лучшие букеты сделанные для вас</h4>
+                             class="img-responsive"><h4>Доступные цены</h4>
 					</div>
 				</div>
 					</div><! --/row -->
@@ -79,18 +78,23 @@
 	{% endblock chose_us %}
 
     {% block about_us %}
-		<div class="container" id="contacts">
+		<div class="container" id="about">
 			<div class="row centered mt mb">
 				<h1>О нас</h1></br>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt posuere nibh.
-                    In ac varius magna. Nam convallis gravida porta. Duis pulvinar fringilla ex eu rutrum. Aliquam
-                    porttitor orci et magna vehicula, et pulvinar turpis luctus. Sed sed est dolor. Fusce eget ante
-                    est. Morbi sodales fermentum cursus. Etiam tincidunt blandit urna, quis tincidunt ex tempus et.
-                    Aenean a libero mi. Suspendisse dolor risus, convallis sed mattis in, faucibus vitae purus. Sed
-                    maximus scelerisque tellus, nec vestibulum justo tincidunt a. Vivamus rutrum, libero et semper
-                    obortis, ipsum diam mollis turpis, id hendrerit nisl sapien a mi. Ut feugiat tincidunt leo sit
-                    amet interdum. Donec scelerisque ipsum faucibus, tempor sem eu, sollicitudin neque.
+                    <strong>Bouquet of flowers</strong> - современный интернет-магазин, который поможет Вам быстро приобрести роскошные живые
+                    цветы с доставкой по указанному адресу.
+                <br>
+                <br>
+                Цветы - запоминающийся, очень приятный и романтичный подарок, который подарит  незабываемые эмоции Вашим
+                    близким людям.
+                    <br>
+                    <br>
+                Мы гарантируем качество каждой композиции, каждый букет создаётся из свежих растений профессиональными
+                    флористами!
+                    <br>
+                    <br>
+                Будем рады Вашим заказам!
                 </p>
             </div>
 		</div>
@@ -101,45 +105,34 @@
 
 	{% block contacts %}
 		<div class="container" id="contacts">
-			<div class="row centered mt mb">
-				<h1>Контакты</h1></br>
-				<div class="col-lg-4 col-md-4 col-sm-4">300700, Kutuzova st. 87. 12</div>
-				<div class="col-lg-4 col-md-4 col-sm-4">г. Москва</div>
-				<div class="col-lg-4 col-md-4 col-sm-4">тел: 8 800 7000 0090</div>
-			</div>
+			<div class="row centered mb">
+                <div id="social">
+                <div class="container">
+                    <div class="row centered">
+                        <h1>Контакты</h1>
+                        <br>
+                        <div> <span>Наш телефон:</span> 8(905)543-31-77
+                        <div>
+                            <span>Whatsapp:</span>  <a href="https://api.whatsapp.com/send?phone=79055433177" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <span>Еще больше букетов в Instagram:</span>
+                           <a href="https://www.instagram.com/bouquet.of_flowers/" target="_blank"><i class="fa fa-instagram"></i></a>
+                        </div>
+                        </div>
+
+                    </div><! --/row -->
+                </div><! --/container -->
+            </div>
+            </div>
 		</div>
 	{% endblock contacts %}
 
     {% block socials %}
-		<div id="social">
-		<div class="container">
-			<div class="row centered">
-				<div class="col-lg-2">
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-				</div>
-				<div class="col-lg-2">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-				</div>
-				<div class="col-lg-2">
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				</div>
-				<div class="col-lg-2">
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-				</div>
-				<div class="col-lg-2">
-					<a href="#"><i class="fa fa-instagram"></i></a>
-				</div>
-				<div class="col-lg-2">
-					<a href="#"><i class="fa fa-tumblr"></i></a>
-				</div>
 
-			</div><! --/row -->
-		</div><! --/container -->
-	</div><! --/social -->
 	{% endblock socials %}
 
 	{% block footer %}
-	
 		<div id="footerwrap">
 			<div class="container">
 				<div class="row centered">
@@ -158,13 +151,16 @@
 		</div><! --/footerwrap -->
 	{% endblock footer %}
 
-    <div style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 0px; right: 0px;">
-        <a href="https://www.instagram.com/" target="_blank">
+    <div class="hidden-xs" style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 0px; right: 0px;">
+        <a href="https://www.instagram.com/bouquet.of_flowers/?igshid=1kjrynlo3u2y0" target="_blank">
             <img style="max-width: 50px" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300"
              alt="Наш инстаграм">
         </a>
     </div>
-	
+    <div class="hidden-xs" style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 50px; right: 4px;">
+        	<a href="https://api.whatsapp.com/send?phone=79055433177" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:48px;color:green"></i></a>
+
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -7,5 +7,5 @@ from mainapp.models import Product
 class Basket(models.Model):
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(verbose_name='Количество', default=0)
+    quantity = models.PositiveIntegerField(verbose_name='Количество букетов', default=0)
     add_time = models.DateTimeField(verbose_name='Время добавления', auto_now_add=True)

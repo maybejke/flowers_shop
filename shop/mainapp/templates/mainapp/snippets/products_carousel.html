@@ -9,7 +9,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
 {% for img in product.pictures.all %}
-    <div class="item {% if forloop.first %} active {% endif%}" style="margin-left: auto; max-width: 450px; max-height: 300px;">
+    <div class="item {% if forloop.first %} active {% endif%}" style="margin-left: auto; max-width: 450px; max-height: 400px;">
       <img src="{{ img.image.url }}" alt="{{ img.title}}">
       <div class="carousel-caption">
       </div>
