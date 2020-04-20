@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Ваш заказ | Цветы
+{% endblock %}
+
+{% block header %}
+    <div id="headerwrap" style="min-height: 70px">
+    </div><! --/headerwrap -->
+{% endblock %}
+{% block content %}
+    <div class="row centered mt mb">
+    <h1>Спасибо Вам, {{ contact.name|title }}!</h1>
+    <p>Мы свяжемся с Вами в кратчайшие сроки!</p>
+    </div>
+{% endblock %}

@@ -1,14 +1,19 @@
 from django.contrib import admin
-from mainapp.models import Product, Category, Picture
+from mainapp.models import Product, Category, Picture, ConnectUs
+
 
 # Register your models here.
 
 class PictureInline(admin.TabularInline):
-	model = Picture
-	raw_id_fields = ['related_obj']
+    model = Picture
+    raw_id_fields = ['related_obj']
+
 
 @admin.register(Product)
 class Product(admin.ModelAdmin):
-	fields = ['title', 'description', 'categories', 'price']
-	list_filter = ['title', 'categories', 'price']
-	inlines = [PictureInline]
+    fields = ['title', 'main_page', 'description', 'categories', 'price']
+    list_filter = ['main_page', 'title', 'categories', 'price']
+    inlines = [PictureInline]
+
+
+admin.site.register(ConnectUs)
