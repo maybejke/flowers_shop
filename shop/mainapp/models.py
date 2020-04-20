@@ -28,6 +28,7 @@ class Product(models.Model):
     categories = models.ManyToManyField(
         'Category', verbose_name='Категории', blank=True, related_name='products')
     price = models.PositiveIntegerField(verbose_name='Цена за шт', default=0)
+    main_page = models.BooleanField('На главную', default=False)
 
     def __str__(self):
         return f'{self.title}'
@@ -77,3 +78,17 @@ class Picture(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
+class ConnectUs(models.Model):
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'Обращение'
+        verbose_name_plural = 'Обращения'
+
+    name = models.CharField('Имя', max_length=25)
+    phone = models.CharField('Телефон', max_length=20)
+    description = models.TextField('Сообщение', blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.name}'

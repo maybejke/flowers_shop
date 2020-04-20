@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, DetailView
 
 from mainapp.models import Product, Category, Picture
 from basketapp.forms import CartAddProductForm
+from mainapp.forms import ConnectUsForm
+from mainapp.utils import send_contact_info
 
 
 # Create your views here.
@@ -10,12 +12,24 @@ from basketapp.forms import CartAddProductForm
 
 class IndexView(TemplateView):
     template_name = 'mainapp/index.html'
+    form = ConnectUsForm()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products_all'] = Product.objects.all()
+        context['products_all'] = Product.objects.filter(main_page=True)
         context['links_menu'] = Category.objects.all()
+        context['form'] = self.form
         return context
+
+
+def contact_us(request):
+    if request.method == 'POST':
+        form = ConnectUsForm(request.POST)
+        if form.is_valid():
+            contact = form.save()
+            # send message (contact.id)
+            send_contact_info(contact.id)
+            return render(request, 'mainapp/thanks.html', {'contact': contact})
 
 
 class ProductDetailView(DetailView):
@@ -41,3 +55,4 @@ class CategoryDetailView(DetailView):
         context = self.get_context_data(object=self.object)
         context['links_menu'] = Category.objects.all()
         return self.render_to_response(context)
+

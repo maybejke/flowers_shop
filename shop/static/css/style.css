@@ -202,9 +202,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price {
-	font-weight: 700;
+	font-weight: 300;
     color: #4a4a4a;
-	font-size: 24px;
+	font-size: 20px;
 	margin-top:10px;
 	z-index:1;
 }
