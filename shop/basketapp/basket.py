@@ -88,6 +88,22 @@ class Cart(object):
         """
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
+    # расчет скидки в корзине (работает)
+    # def get_discount(self):
+    #     product_ids = self.cart.keys()
+    #     делаем выборку по выбранным товарам в корзине и по указанной акции
+    #     products = Product.objects.filter(id__in=product_ids, special_price=True)
+    #     перебираю продкты и сравниваю с продуктом в cart.value, потому что не знаю как по другому сравнить с учетом поля Акции
+    #     получаю  сумму только продуктов с Акцией, по ней высчитываю цену товара со скидкой
+    #     #todo решить что делать с Order, как передать в него цену и скидку.
+    #     for product in products:
+    #         summ = sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values() if item['product'] == product)
+    #         discount = (product.discount / Decimal('100')) * summ
+    #         return discount
+    #
+    # def get_total_price_after_discount(self):
+    #     return self.get_total_price() - self.get_discount()
+
     def clear(self):
         """
         delete cart from session

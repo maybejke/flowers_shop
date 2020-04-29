@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 #headerwrap {
 	background: url(../img/main_page.jpeg) no-repeat center top fixed;
 	margin-top: 0px;
-	padding-top: 250px;
+	padding-top: 150px;
 	text-align:Left;
 	background-attachment: relative;
 	background-position: center center;
@@ -224,7 +224,7 @@ a:hover .button{
 	letter-spacing: 4px;
 	font-size: 80px;
 	font-weight: bold;
-   -webkit-text-stroke: 0.3px #e7a8a8;
+   -webkit-text-stroke: 1.3px #e7a8a8;
    -webkit-text-fill-color: white;
 }
 
@@ -233,6 +233,47 @@ a:hover .button{
 	color: #ffffff;
    -webkit-text-stroke: 1px #e7a8a8;
    -webkit-text-fill-color: white;
+}
+
+@media (max-width: 768px) {
+    #headerwrap h1 {
+        font-size: 60px;
+    }
+    #headerwrap h4 {
+        -webkit-text-stroke: 1.3px #000000;
+    }
+    #headerwrap {
+        background: url(../img/main_page_mob.jpg);
+        margin-top: 0px;
+        padding-top: 150px;
+        text-align:Left;
+        background-position: center;
+        min-height: 700px;
+        width: 100%;
+
+    }
+
+    #why {
+        background: #444 url(../img/main_page_mob.jpg) no-repeat center top fixed;
+        margin-top: 0px;
+        padding-top: 0px;
+        text-align:Left;
+        background-attachment: relative;
+        background-position: center center;
+        min-height: 450px;
+        width: 100%;
+
+        -webkit-background-size: 100%;
+        -moz-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
 }
 
 #social {
@@ -445,4 +486,16 @@ margin-left: auto;
 .menu-color {
    -webkit-text-stroke: 0.5px #e7a8a8;
    -webkit-text-fill-color: white;
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: rgb(244, 226, 227, 0.4);
+  border: 1px solid #f4e2e3;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
 }

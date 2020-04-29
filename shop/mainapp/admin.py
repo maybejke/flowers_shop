@@ -11,7 +11,8 @@ class PictureInline(admin.TabularInline):
 
 @admin.register(Product)
 class Product(admin.ModelAdmin):
-    fields = ['title', 'main_page', 'description', 'categories', 'price']
+    list_display = ['title', 'main_page', 'special_price', 'price']
+    fields = ['title', 'main_page', 'special_price', 'discount', 'description', 'categories', 'price']
     list_filter = ['main_page', 'title', 'categories', 'price']
     inlines = [PictureInline]
 

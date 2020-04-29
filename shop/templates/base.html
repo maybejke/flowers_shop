@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.jpg" %}">
     <title>
     {% block title %}
     	bouquet of flowers
@@ -35,9 +35,9 @@
         <div id="headerwrap">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-xs-12">
                         <h1>Bouquet of flowers</h1>
-                        <h4>дарите с удовольствием</h4>
+                        <h4 class="hidden-xs">дарите с удовольствием</h4>
                     </div>
                 </div><! --/row -->
             </div> <!-- /container -->
@@ -59,7 +59,7 @@
 					
 					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
 						<img src="{% static "/img/icons/Nature_&_outdoors_05.svg" %}" class="img-responsive">
-                        <h4>Бесплатная доставка в пределах МКАД 24 часа в сутки</h4>
+                        <h4>Бесплатная доставка в пределах МКАД 24 часа в сутки (от 2-х часов)</h4>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 gallery principles">
 						<img src="{% static "/img/icons/Nature_&_outdoors_02.svg" %}" class="img-responsive">
@@ -123,7 +123,7 @@
 
                     </div><! --/row -->
                 </div><! --/container -->
-
+                {% block call_back %}
                 <div class="row mt">
                     <h1>Мы вам позвоним!</h1>
                     <div class="col-lg-4 col-lg-offset-4">
@@ -137,6 +137,7 @@
                         </form>
                     </div>
                 </div>
+                {% endblock call_back %}
             </div>
             </div>
 		</div>
@@ -165,16 +166,19 @@
 			</div>
 		</div><! --/footerwrap -->
 	{% endblock footer %}
+     <!-- insta and whatsapp holded
+    ================================================== -->
+    <div class="col-xs-12">
+        <div style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 0px; right: 0px;">
+            <a href="https://www.instagram.com/bouquet.of_flowers/?igshid=1kjrynlo3u2y0" target="_blank">
+                <img style="max-width: 50px" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300"
+                 alt="Наш инстаграм">
+            </a>
+        </div>
+        <div style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 50px; right: 4px;">
+                <a href="https://api.whatsapp.com/send?phone=79055433177" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:48px;color:green"></i></a>
 
-    <div class="hidden-xs" style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 0px; right: 0px;">
-        <a href="https://www.instagram.com/bouquet.of_flowers/?igshid=1kjrynlo3u2y0" target="_blank">
-            <img style="max-width: 50px" src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300"
-             alt="Наш инстаграм">
-        </a>
-    </div>
-    <div class="hidden-xs" style="padding-bottom: 5px; padding-right: 5px; position: fixed; bottom: 50px; right: 4px;">
-        	<a href="https://api.whatsapp.com/send?phone=79055433177" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="font-size:48px;color:green"></i></a>
-
+        </div>
     </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->

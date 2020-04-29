@@ -13,46 +13,74 @@
 {% block content %}
     <div class="container mb mt">
     <h1> Ваш заказ: </h1>
-        <table class="table">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Изображение</th>
-              <th scope="col">Навание</th>
-              <th scope="col">Количество</th>
-              <th scope="col">Цена</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for item in cart %}
-              {% with product=item.product %}
+        <div class="col-lg-12 hidden-xs">
+            <table class="table">
+              <thead class="thead-dark">
                 <tr>
-                  <th scope="row">
-                      {{ forloop.counter }}
-                   </th>
-                  <td><a href="{{ product.get_absolute_url }}">
-                      <img style="width: 40px" src="
-                          {% if product.pictures.all.0.image %}
-                            {{ product.pictures.all.0.image.url }}
-                          {% else %}
-                            {% static "img/bucket2.jpg" %}
-                          {% endif %}"
-                           alt="{{ product.title }}">
-                      </a>
-                  </td>
-                  <td>{{ product.title }}</td>
-                  <td>{{ item.quantity }}</td>
-                  <td>{{ item.total_price }}р</td>
+                  <th scope="col">#</th>
+                  <th scope="col">Изображение</th>
+                  <th scope="col">Навание</th>
+                  <th scope="col">Количество</th>
+                  <th scope="col">Цена</th>
                 </tr>
-              {% endwith %}
-          {% endfor %}
-          <tr class="total">
-              <td colspan="3"></td>
-              <td>Итого:</td>
-              <td class="num">{{ cart.get_total_price }}р</td>
-          </tr>
-          </tbody>
+              </thead>
+              <tbody>
+              {% for item in cart %}
+                  {% with product=item.product %}
+                    <tr>
+                      <th scope="row">
+                          {{ forloop.counter }}
+                       </th>
+                      <td><a href="{{ product.get_absolute_url }}">
+                          <img style="width: 40px" src="
+                              {% if product.pictures.all.0.image %}
+                                {{ product.pictures.all.0.image.url }}
+                              {% else %}
+                                {% static "img/bucket2.jpg" %}
+                              {% endif %}"
+                               alt="{{ product.title }}">
+                          </a>
+                      </td>
+                      <td>{{ product.title }}</td>
+                      <td>{{ item.quantity }}</td>
+                      <td>{{ item.total_price }}р</td>
+                    </tr>
+                  {% endwith %}
+              {% endfor %}
+              <tr class="total">
+                  <td colspan="3"></td>
+                  <td>Итого:</td>
+                  <td class="num">{{ cart.get_total_price }}р</td>
+              </tr>
+              </tbody>
         </table>
+    </div>
+    {# for mobile   #}
+        <div class="col-xs-12 visible-xs">
+             {% for item in cart %}
+                {% with product=item.product %}
+                    <div class="row row-cols-1 row-cols-md-2">
+                      <div class="col mb-4">
+                        <div class="card">
+                          <img style="max-width: 100px" src="{% if product.pictures.all.0.image %}
+                                    {{ product.pictures.all.0.image.url }}
+                                  {% else %}
+                                    {% static "img/bucket2.jpg" %}
+                                  {% endif %}"
+                                   alt="{{ product.title }}" class="card-img-top" alt="{{product.title}}">
+                          <div class="card-body">
+                            <h4 class="card-title">{{ product.title }}</h4>
+                            <p class="card-text">Кол-во букетов: {{ item.quantity }} шт.<br>
+                                Цена: {{ item.total_price }} руб.</p>
+                              <hr>
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                {% endwith %}
+              {% endfor %}
+            <div class="text-center mb-2"><h4 class="card-titile">Итого к оплате: {{ cart.get_total_price }} руб.</h4> </div>
+        </div>
         <form action="." method="post">
             {% csrf_token %}
             {% for field in form %}
@@ -62,4 +90,8 @@
             <p><input type="submit" value="Отправить заказ" class="btn btn-primary"></p>
         </form>
     </div>
+{% endblock %}
+
+{% block call_back %}
+
 {% endblock %}

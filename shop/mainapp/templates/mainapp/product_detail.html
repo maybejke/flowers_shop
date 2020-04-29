@@ -10,29 +10,32 @@
         {% for link in links_menu %}
             {% include "mainapp/snippets/categories_menu_snippet.html" %}
         {% endfor %}
-	</ul>
+    </ul>
     <section id="works"></section>
-	<div class="container">
+    <div class="container">
         <div class="row centered mt mb">
             <div class="col-md-4">
-              {% include "mainapp/snippets/products_carousel.html" %}
+                {% include "mainapp/snippets/products_carousel.html" %}
             </div>
             <div class="col-md-8">
-              <div class="card-body">
-                <h3 class="card-title">{{ product.title }}</h3>
-                <p class="card-text"><small class="text-muted">{{ product.categories.all.0.title }}</small></p>
-                <p class="card-text text-left">{{ product.description }}</p>
-                  <br>
-                <div class="price ">Цена за букет: {{ product.price }} руб.</div>
-                <form action="{% url "basket:cart_add" product.id %}" method="post">
-                    <div class="form-row">
-                        {{ cart_product_form }}
-                        {% csrf_token %}
+                <div class="card-body">
+                    <h3 class="card-title">{{ product.title }}</h3>
+                    <p class="card-text"><small class="text-muted">{{ product.categories.all.0.title }}</small></p>
+                    <p class="card-text text-left">{{ product.description }}</p>
+                    <br>
+                    <div class="price ">Цена за букет {% if product.special_price %} с учетом
+                        скидки: {{ product.price }} руб., <strike>{{ product.discount_product }}</strike>руб. {% else %}
+                        : {{product.price}} руб. {% endif %}
                     </div>
+                    <form action="{% url "basket:cart_add" product.id %}" method="post">
+                        <div class="form-row">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                        </div>
 
                         <input type="submit" class="btn btn-primary" value="Добавить в корзину">
-                </form>
-              </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

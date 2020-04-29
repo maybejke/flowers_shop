@@ -6,22 +6,26 @@ from orderapp.models import Order
 class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['first_name', 'email', 'address', 'phone_number', 'comment']
+        fields = ['first_name', 'email', 'address', 'phone_number','delivery_time', 'comment', ]
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Иван'}),
             'address': forms.TextInput(attrs={'class': 'form-control',
                                               'placeholder': 'ул. Красная, д. 1, кв. 4, под. 4, эт. 3'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'ivan@mail.ru'}),
             'phone_number': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': '89171112233'}),
+            'delivery_time': forms.TextInput(attrs={'class': 'form-control',
+                                             'placeholder': 'Буду ждать доставку сегодня к 18:00.'}),
             'comment': forms.Textarea(attrs={'class': 'form-control',
-                                             'placeholder': 'Дополнительная информация к заказу'})
+                                             'placeholder': 'Дополнительная информация к заказу'}),
+
         }
 
 
 class OrderGiftCreateForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ['first_name', 'gift_name', 'address', 'gift_phone_number', 'phone_number', 'email', 'comment']
+        fields = ['first_name', 'gift_name', 'address', 'gift_phone_number', 'phone_number', 'email',
+                  'delivery_time', 'comment']
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваше имя'}),
             'gift_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя получателя'}),
@@ -30,5 +34,7 @@ class OrderGiftCreateForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'placeholder': 'Мобильный телефон получателя'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваш мобильный'}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваш e-mail'}),
+            'delivery_time': forms.TextInput(attrs={'class': 'form-control',
+                                                    'placeholder': 'Буду ждать доставку сегодня к 18:00.'}),
             'comment': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Комментарии к заказу'}),
         }

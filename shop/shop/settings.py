@@ -141,6 +141,13 @@ MEDIA_URL = '/media/'
 CART_SESSION_ID = 'basket'
 
 # send mail into console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_FILE_PATH = '/tmp/app-messages' # change this to a proper location
 
+# send email yandex ru
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "@yandex.ru"
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_SSL = True

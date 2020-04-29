@@ -5,6 +5,32 @@
 	bouquet of flowers | дарите с удовольствием
 {% endblock title %}
 
+{% block header %}
+        <div id="headerwrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1>Bouquet of flowers</h1>
+                        <h4 class="hidden-xs">дарите с удовольствием</h4>
+                        <div class="row">
+                          <div class="col-lg-8">
+                            <div class="thumbnail mt">
+                              <div class="caption">
+                                  <h4>Специальное предложение!</h4>
+                                  <p><strong>{{products_discount.all.0.title}}</strong> по акционной цене, <br>
+                                      размер скидки: {{ products_discount.all.0.discount }}%!</p>
+{#                                  <img style="max-width: 100px" src="{{ products_main_page.all.0.pictures.all.0.image.url }}" alt="...">#}
+                                  <p><a href="{{ products_discount.all.0.get_absolute_url }}" class="btn btn-danger" role="button">от {{ products_discount.all.0.price }} р.</a></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div><! --/row -->
+            </div> <!-- /container -->
+        </div><! --/headerwrap -->
+{% endblock header %}
+
 {% block content %}
 
 	<ul class="nav nav-pills nav-justified">
@@ -15,8 +41,8 @@
 	<section id="works"></section>
 	<div class="container">
 		<div class="row centered mt mb">
-			<h1>Букеты</h1>
-			{% for product in products_all %}
+            <h2 style="font-weight: 300;">Самое популярное на <strong><i>bouquets of flowers</i></strong></h2>
+			{% for product in products_main_page %}
                 {% include "mainapp/snippets/products_snippet.html" %}
 			{% endfor %}
 		</div>

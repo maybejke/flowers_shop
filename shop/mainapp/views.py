@@ -16,7 +16,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products_all'] = Product.objects.filter(main_page=True)
+        context['products_main_page'] = Product.objects.filter(main_page=True)
+        context['products_discount'] = Product.objects.filter(special_price=True)
         context['links_menu'] = Category.objects.all()
         context['form'] = self.form
         return context
@@ -37,11 +38,13 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'mainapp/product_detail.html'
     cart_product_form = CartAddProductForm()
+    form = ConnectUsForm()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['cart_product_form'] = self.cart_product_form
         context['links_menu'] = Category.objects.all()
+        context['form'] = self.form
         return context
 
 
@@ -49,10 +52,12 @@ class CategoryDetailView(DetailView):
 
     model = Category
     template_name = 'mainapp/category_detail.html'
+    form = ConnectUsForm()
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         context['links_menu'] = Category.objects.all()
+        context['form'] = self.form
         return self.render_to_response(context)
 

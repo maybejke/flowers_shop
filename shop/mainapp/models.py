@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
 
@@ -6,6 +7,8 @@ from time import time
 
 
 # Create your models here.
+
+ONE_HUNDERD_PERCENTS: int = 100
 
 
 def gen_slug(s):
@@ -29,6 +32,11 @@ class Product(models.Model):
         'Category', verbose_name='Категории', blank=True, related_name='products')
     price = models.PositiveIntegerField(verbose_name='Цена за шт', default=0)
     main_page = models.BooleanField('На главную', default=False)
+    special_price = models.BooleanField('Акция', default=False, blank=True, null=True)
+    discount = models.PositiveIntegerField(verbose_name='Размер скидки',
+                                           default=0,validators=[MinValueValidator(0), MaxValueValidator(100)],
+                                           blank=True, null=True,
+                                           help_text='Скидка указывается  в диапозоне от 0 до 100')
 
     def __str__(self):
         return f'{self.title}'
@@ -40,6 +48,16 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'slug': self.slug})
+
+    # цена продукта со скидкой для отображения на странице
+    def discount_product(self):
+        if self.discount != 0:
+            self.price = (self.price * (1 / (self.discount / ONE_HUNDERD_PERCENTS)))
+            return self.price
+        else:
+            return self.price
+
+
 
 
 class Category(models.Model):

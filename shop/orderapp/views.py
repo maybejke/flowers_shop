@@ -5,7 +5,7 @@ from .forms import OrderCreateForm, OrderGiftCreateForm
 from basketapp.basket import Cart
 
 
-from .tasks import order_created
+from .tasks import order_created, order_created_for_admin
 
 # Create your views here.
 
@@ -28,10 +28,11 @@ def order_create(request):
                                           product=item['product'],
                                           price=item['price'],
                                           quantity=item['quantity'])
-            # clear basket
-            cart.clear()
             # run async task// order_created.delay(order.id) - adding task into queue, will run it as soon as possible
             order_created(order.id)
+            order_created_for_admin(order.id)
+            # clear basket
+            cart.clear()
 
             return render(request, 'orderapp/order_created.html', {'order': order})
 
@@ -58,10 +59,14 @@ def gift_order_create(request):
                                           product=item['product'],
                                           price=item['price'],
                                           quantity=item['quantity'])
-            # clear basket
-            cart.clear()
+
             # run async task// order_created.delay(order.id) - adding task into queue, will run it as soon as possible
             order_created(order.id)
+            order_created_for_admin(order.id)
+            # clear basket
+            cart.clear()
+
+
 
             return render(request, 'orderapp/order_created.html', {'order': order})
 

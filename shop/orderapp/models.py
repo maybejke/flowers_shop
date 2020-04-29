@@ -25,12 +25,13 @@ class Order(models.Model):
     phone_number = models.DecimalField(verbose_name='Номер телефона',
                                        max_digits=12, decimal_places=0)
     gift_phone_number = models.DecimalField(verbose_name='Номер телефона получателя подарка',
-                                       max_digits=12, decimal_places=0, null=True)
+                                            max_digits=12, decimal_places=0, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
     comment = models.TextField(verbose_name='Комментарий к заказу',
                                blank=True, null=True, help_text='Дополнительная информация')
+    delivery_time = models.CharField(verbose_name='Желаемое время доставки', max_length=100, null=True, blank=True)
 
     def __str__(self):
         return f'Заказ: {self.id}'
@@ -44,9 +45,9 @@ class OrderItems(models.Model):
     get_cost возвращает стоимость одной позиции в заказе
     """
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.PositiveIntegerField(default=1)
+    product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE, verbose_name='Название продукта')
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за шт.')
+    quantity = models.PositiveIntegerField(default=1, verbose_name='Кол-во букетов:')
 
     def __str__(self):
         return f'{self.id}'
